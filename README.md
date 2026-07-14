@@ -9,7 +9,7 @@
 | [SRE Engineer](skills/sre.md) | Site Reliability Engineer combining Infrastructure, Networking, Cybersecurity, DevOps, FinOps, and Disaster Recovery expertise with a pessimist mindset |
 | [QA Engineer](skills/qa-engineer.md) | Quality Assurance Engineer covering test strategy, automation, performance, accessibility, and CI quality gates |
 | [Backend Engineer](skills/backend-engineer.md) | Backend Engineer expert in API design, distributed systems, databases, messaging, security, and performance |
-| [Frontend Engineer](skills/frontend-engineer.md) | Frontend Engineer specializing in React/Vue/Angular, performance (Core Web Vitals), accessibility, and design systems |
+| [Frontend Engineer](skills/frontend-engineer.md) | Frontend Engineer specializing in React/Vue/Angular/Nuxt.js 4, performance (Core Web Vitals), accessibility, and design systems |
 | [Cybersecurity Engineer](skills/cybersecurity-engineer.md) | Cybersecurity Engineer covering AppSec, cloud security, penetration testing, threat modeling, and incident response |
 | [Project Manager Engineer](skills/project-manager.md) | Project Manager Engineer bridging technical execution and business goals via Agile, risk management, and stakeholder communication |
 | [Architect / Documentator / Diagramer / Planner](skills/architect.md) | Systems architect who understands, organizes, diagrams, and improves complex systems with C4, UML, ADRs, and technical roadmaps |
@@ -49,7 +49,7 @@ A quality-first engineer who shifts testing left, automates the right scenarios,
 A battle-tested server-side engineer focused on clean API design, database performance, event-driven architecture, and secure, observable services.
 
 ### 🎨 [Frontend Engineer](skills/frontend-engineer.md)
-A modern UI engineer with deep expertise in React/Next.js, TypeScript, Core Web Vitals, WCAG accessibility, and design system development.
+A modern UI engineer with deep expertise in React/Next.js/Nuxt.js 4, TypeScript, Core Web Vitals, WCAG accessibility, and design system development.
 
 ### 🔐 [Cybersecurity Engineer](skills/cybersecurity-engineer.md)
 A full-spectrum security professional covering OWASP AppSec, cloud security posture, penetration testing, threat modeling (STRIDE), and incident response — with the "assume breach" mindset.
@@ -98,6 +98,12 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [golangci-lint](https://golangci-lint.run/) | Go linter aggregator | `docker run --rm -v $(pwd):/app golangci/golangci-lint golangci-lint run` |
 | [ESLint](https://eslint.org/) | JavaScript/TypeScript linter | `npm install --save-dev eslint` |
 | [Prettier](https://prettier.io/) | Code formatter (JS/TS/JSON/YAML) | `npm install --save-dev prettier` |
+| [Rust](https://www.rust-lang.org/tools/install) | Systems-language backend runtime for high-performance services | `rustup toolchain install stable && rustup override set stable` |
+| [clippy](https://github.com/rust-lang/rust-clippy) | Rust lints and correctness checks | `rustup component add clippy` |
+| [rustfmt](https://github.com/rust-lang/rustfmt) | Rust formatter | `rustup component add rustfmt` |
+| [cargo-nextest](https://nexte.st/) | Fast Rust test runner | `cargo install cargo-nextest` |
+| [cargo-audit](https://github.com/rustsec/rustsec/tree/main/cargo-audit) | Scan Rust dependencies for known vulnerabilities | `cargo install cargo-audit` |
+| [cargo-deny](https://github.com/EmbarkStudios/cargo-deny) | Dependency license/advisory policy checks for Rust | `cargo install cargo-deny` |
 | [hadolint](https://github.com/hadolint/hadolint) | Dockerfile linter | `docker run --rm -i hadolint/hadolint` |
 | [Spectral](https://github.com/stoplightio/spectral) | OpenAPI / AsyncAPI linter | `npx @stoplight/spectral-cli lint` |
 | [sqlfluff](https://sqlfluff.com/) | SQL linter and formatter | `uv venv .venv && uv pip install sqlfluff` |
@@ -120,6 +126,11 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [pytest](https://pytest.org/) | Python test framework | `uv pip install pytest pytest-cov` (inside venv) |
 | [Typer](https://typer.tiangolo.com/) | CLI framework built on Click | `uv pip install typer` (inside venv) |
 | [Click](https://click.palletsprojects.com/) | CLI framework | `uv pip install click` (inside venv) |
+| [Rust](https://www.rust-lang.org/tools/install) | Build high-performance static CLI binaries | `rustup toolchain install stable && rustup override set stable` |
+| [clap](https://github.com/clap-rs/clap) | Rust CLI argument parser and command framework | `cargo add clap` |
+| [cross](https://github.com/cross-rs/cross) | Cross-compilation for Rust CLI releases | `cargo install cross` |
+| [cargo-dist](https://github.com/axodotdev/cargo-dist) | Build and package Rust CLI release artifacts | `cargo install cargo-dist` |
+| [cargo-nextest](https://nexte.st/) | Fast Rust test runner | `cargo install cargo-nextest` |
 | [pre-commit](https://pre-commit.com/) | Pre-commit hook runner | `uv tool install pre-commit` |
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | Secrets scanning hook | `uv tool install detect-secrets` |
 | [gitleaks](https://github.com/gitleaks/gitleaks) | Git secrets detection | `docker run --rm -v $(pwd):/path zricethezav/gitleaks` |
@@ -165,6 +176,10 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [Storybook](https://storybook.js.org/) | Component development and documentation | `npx storybook@latest init` |
 | [Chromatic](https://www.chromatic.com/) | Visual regression testing (OSS tier) | `npm install --save-dev chromatic` |
 | [TypeScript](https://www.typescriptlang.org/) | Static typing for JavaScript | `npm install --save-dev typescript` |
+| [Nuxt.js 4 (`nuxi`)](https://nuxt.com/docs/getting-started/installation) | Nuxt 4 scaffolding, dev server, and build tooling | `npx nuxi@latest init <app-name>` |
+| [@nuxt/devtools](https://github.com/nuxt/devtools) | Nuxt application inspection and debugging tools | `npx nuxi@latest module add @nuxt/devtools` |
+| [@nuxt/image](https://image.nuxt.com/) | Nuxt-native image optimization module | `npx nuxi@latest module add @nuxt/image` |
+| [@nuxtjs/i18n](https://i18n.nuxtjs.org/) | Internationalization module for Nuxt apps | `npx nuxi@latest module add @nuxtjs/i18n` |
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | Secrets scanning | `uv tool install detect-secrets` |
 | [gitleaks](https://github.com/gitleaks/gitleaks) | Git secrets detection | `docker run --rm -v $(pwd):/path zricethezav/gitleaks` |
 
@@ -219,6 +234,11 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [yamllint](https://github.com/adrienverge/yamllint) | YAML linter | `uv tool install yamllint` |
 | [shellcheck](https://www.shellcheck.net/) | Shell script static analysis | `docker run --rm -v $(pwd):/mnt koalaman/shellcheck` |
 | [ansible-lint](https://ansible.readthedocs.io/projects/lint/) | Ansible playbook linter | `uv venv .venv && uv pip install ansible-lint` |
+| [Rust](https://www.rust-lang.org/tools/install) | Build memory-safe SRE automation and ops daemons | `rustup toolchain install stable && rustup override set stable` |
+| [clippy](https://github.com/rust-lang/rust-clippy) | Rust static analysis for SRE tooling code | `rustup component add clippy` |
+| [rustfmt](https://github.com/rust-lang/rustfmt) | Rust formatter for ops tooling repositories | `rustup component add rustfmt` |
+| [cargo-audit](https://github.com/rustsec/rustsec/tree/main/cargo-audit) | Rust dependency vulnerability scanning | `cargo install cargo-audit` |
+| [cargo-deny](https://github.com/EmbarkStudios/cargo-deny) | Rust license and advisory policy checks | `cargo install cargo-deny` |
 | [Trivy](https://github.com/aquasecurity/trivy) | Container image and IaC vulnerability scanner | `docker run --rm -v $(pwd):/work aquasec/trivy fs /work` |
 | [gitleaks](https://github.com/gitleaks/gitleaks) | Detect secrets in git history | `docker run --rm -v $(pwd):/path zricethezav/gitleaks` |
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | Secrets baseline | `uv tool install detect-secrets` |
