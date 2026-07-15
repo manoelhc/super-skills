@@ -14,6 +14,7 @@
 | [Project Manager Engineer](skills/project-manager.md) | Project Manager Engineer bridging technical execution and business goals via Agile, risk management, and stakeholder communication |
 | [Architect / Documentator / Diagramer / Planner](skills/architect.md) | Systems architect who understands, organizes, diagrams, and improves complex systems with C4, UML, ADRs, and technical roadmaps |
 | [CLI / Tools Engineer](skills/cli-tools-engineer.md) | CLI & Tools Engineer specializing in Python-first tooling with uv/poetry, clean code, proper packaging, CI/CD workflows, and pre-commit hooks |
+| [SEO Specialist](skills/seo-specialist.md) | World-class SEO specialist covering technical SEO, E-E-A-T, Core Web Vitals, schema/structured data, GEO, AEO, hreflang, GitHub repository SEO, and AI search optimization |
 
 ## How to Use
 
@@ -62,6 +63,9 @@ A strategic technical leader who excels at understanding complex systems, produc
 
 ### 🛠️ [CLI / Tools Engineer](skills/cli-tools-engineer.md)
 A Python-first CLI and developer-tooling specialist who builds clean, installable, and well-documented command-line tools. Expert in `uv`, `poetry`, `Typer`/`Click`, `pyproject.toml` packaging, `--help`/`--version` wiring, CI/CD release pipelines, pre-commit hooks, and Makefile-driven workflows.
+
+### 🔍 [SEO Specialist](skills/seo-specialist.md)
+A world-class SEO specialist combining LLM-first reasoning with deterministic script-backed evidence. Covers technical SEO, E-E-A-T content scoring, Core Web Vitals (LCP, INP, CLS), schema/structured data (JSON-LD), hreflang, GEO (AI search optimization), AEO (featured snippets, PAA, Knowledge Panels), GitHub repository SEO, and strategic planning across SaaS, e-commerce, local, publisher, and agency verticals. Every audit delivers confidence-labeled findings, a scored report, and a prioritized `ACTION-PLAN.md`.
 
 ---
 
@@ -253,3 +257,24 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [Litmus](https://litmuschaos.io/) | Kubernetes chaos engineering framework | Deploy via Helm: `helm install litmuschaos litmuschaos/litmus -n litmus` |
 | [dive](https://github.com/wagoodman/dive) | Docker image layer analysis | `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive` |
 | [cosign](https://github.com/sigstore/cosign) | Container image signing and verification | `docker run --rm -v $(pwd):/workspace gcr.io/projectsigstore/cosign` |
+
+---
+
+### 🔍 SEO Specialist
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started) | Core Web Vitals (LCP, INP, CLS) — free, no key required for basic usage | `uv venv .venv && uv pip install requests` |
+| [Lighthouse](https://github.com/GoogleChrome/lighthouse) | Lab-based performance and SEO audit | `docker run --rm -v $(pwd):/reports --cap-add=SYS_ADMIN ghcr.io/puppeteer/puppeteer lighthouse <url>` |
+| [Playwright](https://playwright.dev/) | Headless browser for screenshots and JS-rendered SEO analysis | `uv venv .venv && uv pip install playwright && playwright install chromium` |
+| [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/) | HTML parsing and on-page element extraction | `uv venv .venv && uv pip install beautifulsoup4 lxml` |
+| [html-validate](https://html-validate.org/) | HTML structural validation (semantic SEO) | `npm install --save-dev html-validate` |
+| [axe-cli](https://github.com/dequelabs/axe-core) | Accessibility audit (overlaps with SEO quality signals) | `npm install --save-dev @axe-core/cli` |
+| [Schema.org validator (Python)](https://pypi.org/project/extruct/) | Extract and validate structured data (JSON-LD, Microdata, RDFa) | `uv venv .venv && uv pip install extruct` |
+| [rich](https://github.com/Textualize/rich) | Terminal-formatted SEO audit reports | `uv venv .venv && uv pip install rich` |
+| [python-dotenv](https://github.com/theskumar/python-dotenv) | Load API credentials from `.env` without hardcoding secrets | `uv venv .venv && uv pip install python-dotenv` |
+| [Pillow](https://python-pillow.org/) | Image format detection, dimensions, and optimization analysis | `uv venv .venv && uv pip install Pillow` |
+| [GitHub CLI (`gh`)](https://cli.github.com/) | GitHub repository SEO audits (topics, traffic, community health) | `docker run --rm -v $(pwd):/work ghcr.io/cli/cli gh` |
+| [pre-commit](https://pre-commit.com/) | Pre-commit hooks for schema validation and SEO quality gates | `uv tool install pre-commit` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Prevent API keys from being committed in SEO config files | `uv tool install detect-secrets` |
+| [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Lint SEO reports and README files | `npx markdownlint-cli` |
