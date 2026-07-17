@@ -15,65 +15,35 @@
 | [Architect / Documentator / Diagramer / Planner](skills/architect.md) | Systems architect who understands, organizes, diagrams, and improves complex systems with C4, UML, ADRs, and technical roadmaps |
 | [CLI / Tools Engineer](skills/cli-tools-engineer.md) | CLI & Tools Engineer specializing in Python-first tooling with uv/poetry, clean code, proper packaging, CI/CD workflows, and pre-commit hooks |
 | [SEO Specialist](skills/seo-specialist.md) | World-class SEO specialist covering technical SEO, E-E-A-T, Core Web Vitals, schema/structured data, GEO, AEO, hreflang, GitHub repository SEO, and AI search optimization |
+| [Troubleshooter](skills/troubleshooter.md) | Root-cause analyst and protocol debugger covering system state collection, process anomaly detection, HTTP/REST/gRPC/GraphQL debugging, network diagnostics, VPN, and SSH — read-first, never damages a running system |
+| [Code Reviewer](skills/code-reviewer.md) | Senior code reviewer covering full branch-diff analysis, blast radius assessment, lint enforcement, documentation verification against exact library versions, test coverage audit, naming and scope review, architecture alignment, and Conventional Commits validation |
 
 ## How to Use
 
-Copy the **System Prompt** section from any skill file and paste it as the system prompt in your AI assistant of choice:
+Copy the **System Prompt** from any skill file and paste it as the system prompt in your AI assistant:
 
 - **Claude** — Project instructions or system prompt in the API
 - **Gemini** — System instruction field
-- **Cursor** — `.cursorrules` file or Rules for AI in settings
-- **OpenAI (ChatGPT / API)** — System message or Custom Instructions
+- **Cursor** — `.cursorrules` or Rules for AI in settings
+- **OpenAI** — System message or Custom Instructions
 
-You can combine multiple skills by merging their prompts, or use them individually depending on the task at hand.
+Combine multiple skills by merging their prompts, or use them individually.
 
-## Validation & Delivery Standards
+## Delivery Standards
 
-Every skill in this collection is designed to deliver **fully functioning solutions** — not just code snippets. When you use any skill, the AI will produce:
+Every skill produces **fully functioning solutions**, not just code snippets:
 
-- **Makefile** — A self-documenting `Makefile` with targets to install, run, test, lint, format, and clean the project. Just run `make help` to see all available commands.
-- **Pre-commit hooks** — A `.pre-commit-config.yaml` using open-source, pinned hooks appropriate for the stack (linters, formatters, secrets scanners). Run `pre-commit install` once to activate.
-- **Test scripts (`tools/`)** — Standalone validation, smoke-test, and helper scripts organized as a Python `uv` project under `tools/`. Run any script with `uv run <script-name>` without manual dependency installation.
-- **README.md** — Every deliverable includes a reviewed and updated `README.md` with setup, run, test, lint, and contribution instructions.
-
-This means every output is ready to run, easy to validate, and clean of errors from the start.
-
-## Skills Overview
-
-### 🔧 [SRE Engineer](skills/sre.md)
-A combined expert in Infrastructure, Networking, Cybersecurity, DevOps, FinOps, and Disaster Recovery — with a **pessimist mindset** that assumes failure at every layer. Ideal for reviewing infrastructure, designing resilient systems, managing incidents, and controlling cloud costs.
-
-### 🧪 [QA Engineer](skills/qa-engineer.md)
-A quality-first engineer who shifts testing left, automates the right scenarios, and integrates quality gates into CI/CD. Expert in Playwright, Cypress, k6, and risk-based test strategy.
-
-### ⚙️ [Backend Engineer](skills/backend-engineer.md)
-A battle-tested server-side engineer focused on clean API design, database performance, event-driven architecture, and secure, observable services.
-
-### 🎨 [Frontend Engineer](skills/frontend-engineer.md)
-A modern UI engineer with deep expertise in React/Next.js/Nuxt.js 4, TypeScript, Core Web Vitals, WCAG accessibility, and design system development.
-
-### 🔐 [Cybersecurity Engineer](skills/cybersecurity-engineer.md)
-A full-spectrum security professional covering OWASP AppSec, cloud security posture, penetration testing, threat modeling (STRIDE), and incident response — with the "assume breach" mindset.
-
-### 📋 [Project Manager Engineer](skills/project-manager.md)
-A technically literate PM who combines Agile mastery, risk management, stakeholder communication, and engineering literacy to deliver projects on time with clarity.
-
-### 🏛️ [Architect / Documentator / Diagramer / Planner](skills/architect.md)
-A strategic technical leader who excels at understanding complex systems, producing C4 diagrams and ADRs, organizing information, and proactively suggesting improvements. This skill aces at making sense of ambiguity and turning it into structured, actionable artifacts.
-
-### 🛠️ [CLI / Tools Engineer](skills/cli-tools-engineer.md)
-A Python-first CLI and developer-tooling specialist who builds clean, installable, and well-documented command-line tools. Expert in `uv`, `poetry`, `Typer`/`Click`, `pyproject.toml` packaging, `--help`/`--version` wiring, CI/CD release pipelines, pre-commit hooks, and Makefile-driven workflows.
-
-### 🔍 [SEO Specialist](skills/seo-specialist.md)
-A world-class SEO specialist combining LLM-first reasoning with deterministic script-backed evidence. Covers technical SEO, E-E-A-T content scoring, Core Web Vitals (LCP, INP, CLS), schema/structured data (JSON-LD), hreflang, GEO (AI search optimization), AEO (featured snippets, PAA, Knowledge Panels), GitHub repository SEO, and strategic planning across SaaS, e-commerce, local, publisher, and agency verticals. Every audit delivers confidence-labeled findings, a scored report, and a prioritized `ACTION-PLAN.md`.
-
----
+- **Makefile** — Self-documenting targets for install, run, test, lint, format, and clean. Run `make help` to list them.
+- **Pre-commit hooks** — `.pre-commit-config.yaml` with pinned, stack-appropriate hooks. Run `pre-commit install` once.
+- **Test scripts (`tools/`)** — Validation and smoke-test scripts as a `uv` project. Run any with `uv run <script>`.
+- **README.md** — Setup, run, test, lint, and contribution instructions included with every deliverable.
 
 ## Open Source Tools Reference
 
-Each skill relies on a set of open source tools to do its job well. The tables below map every skill to its recommended tools, along with the preferred **sandbox installation method** to keep your host system clean and avoid version conflicts.
+<details>
+<summary>Per-skill tool tables with sandbox install commands</summary>
 
-> **Sandbox-first rule:** Never install tools globally with `sudo pip install`, `sudo npm install -g`, or `brew install` unless you are working inside a dedicated container or VM. Always prefer the isolated install commands shown below.
+> **Sandbox-first:** Avoid `sudo pip install`, `sudo npm install -g`, or bare `brew install`. Use the isolated commands below.
 
 ---
 
@@ -278,3 +248,73 @@ Each skill relies on a set of open source tools to do its job well. The tables b
 | [pre-commit](https://pre-commit.com/) | Pre-commit hooks for schema validation and SEO quality gates | `uv tool install pre-commit` |
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | Prevent API keys from being committed in SEO config files | `uv tool install detect-secrets` |
 | [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Lint SEO reports and README files | `npx markdownlint-cli` |
+
+---
+
+### 🔎 Troubleshooter
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [ss / iproute2](https://man7.org/linux/man-pages/man8/ss.8.html) | Socket and port inspection (`ss -tulnpe`) | pre-installed on Linux |
+| [lsof](https://github.com/nicowillis/lsof) | List open files and network connections per process | pre-installed on Linux/macOS |
+| [tcpdump](https://www.tcpdump.org/) | Packet capture with BPF filter | pre-installed on Linux; `brew install tcpdump` on macOS |
+| [tshark / Wireshark](https://www.wireshark.org/) | Protocol dissection and pcap analysis | `docker run --rm -v $(pwd):/cap ghcr.io/linuxserver/wireshark` |
+| [mtr](https://github.com/traviscross/mtr) | Combined traceroute + ping network path diagnostic | `apt install mtr` / `brew install mtr` |
+| [nmap](https://nmap.org/) | Network discovery and port scanning | `docker run --rm instrumentisto/nmap` |
+| [grpcurl](https://github.com/fullstorydev/grpcurl) | gRPC service reflection, listing, and ad-hoc requests | `docker run --rm fullstorydev/grpcurl` |
+| [HTTPie](https://httpie.io/) | Human-friendly HTTP/REST request tester | `uv tool install httpie` |
+| [mitmproxy](https://mitmproxy.org/) | Interactive HTTP/HTTPS proxy for protocol inspection | `docker run --rm -it -p 8080:8080 mitmproxy/mitmproxy` |
+| [curl](https://curl.se/) | HTTP/gRPC/protocol testing with verbose and trace output | pre-installed on Linux/macOS |
+| [openssl](https://www.openssl.org/) | TLS/certificate inspection and validation | pre-installed on Linux/macOS |
+| [wg / wireguard-tools](https://www.wireguard.com/) | WireGuard VPN status, peer, and handshake inspection | `apt install wireguard-tools` |
+| [iperf3](https://github.com/esnet/iperf) | Network throughput and bandwidth measurement | `docker run --rm -it networkstatic/iperf3` |
+| [ansible](https://www.ansible.com/) | Configuration drift detection via `--check --diff` | `uv venv .venv && uv pip install ansible` |
+| [ansible-lint](https://ansible.readthedocs.io/projects/lint/) | Lint playbooks before dry-run checks | `uv venv .venv && uv pip install ansible-lint` |
+| [AIDE](https://aide.github.io/) | File integrity monitoring (detect changed/unexpected files) | `apt install aide` |
+| [debsums](https://packages.debian.org/debsums) | Verify Debian package file checksums | `apt install debsums` |
+| [auditd / ausearch / aureport](https://github.com/linux-audit/audit-userspace) | Linux kernel audit log collection and query | `apt install auditd` |
+| [scapy](https://scapy.net/) | Python-based packet crafting and analysis | `uv venv .venv && uv pip install scapy` |
+| [pyshark](https://github.com/KimiNewt/pyshark) | Python wrapper for tshark packet analysis | `uv venv .venv && uv pip install pyshark` |
+| [graphql-inspector](https://the-guild.dev/graphql/inspector) | GraphQL schema validation and introspection | `npx @graphql-inspector/cli` |
+| [rover (Apollo)](https://www.apollographql.com/docs/rover/) | Apollo Federation schema composition checks | `docker run --rm apollographql/rover` |
+| [Spectral](https://github.com/stoplightio/spectral) | OpenAPI / REST contract linting | `npx @stoplight/spectral-cli lint` |
+| [shellcheck](https://www.shellcheck.net/) | Shell script static analysis for collection scripts | `docker run --rm -v $(pwd):/mnt koalaman/shellcheck` |
+| [yamllint](https://github.com/adrienverge/yamllint) | Lint YAML config files being inspected | `uv tool install yamllint` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Prevent secrets from leaking into investigation artifacts | `uv tool install detect-secrets` |
+| [gitleaks](https://github.com/gitleaks/gitleaks) | Scan config and history for credential leaks | `docker run --rm -v $(pwd):/path zricethezav/gitleaks` |
+| [pre-commit](https://pre-commit.com/) | Enforce hook quality gates on investigation scripts | `uv tool install pre-commit` |
+
+---
+
+### 🔬 Code Reviewer
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [ruff](https://github.com/astral-sh/ruff) | Python linting and formatting | `uv tool install ruff` |
+| [mypy](https://mypy.readthedocs.io/) | Python static type checking | `uv venv .venv && uv pip install mypy` |
+| [bandit](https://github.com/PyCQA/bandit) | Python security linting (OWASP) | `uv venv .venv && uv pip install bandit` |
+| [pylint](https://pylint.readthedocs.io/) | Python code analysis and convention checks | `uv venv .venv && uv pip install pylint` |
+| [coverage.py / pytest-cov](https://coverage.readthedocs.io/) | Python test coverage measurement | `uv venv .venv && uv pip install pytest-cov` |
+| [ESLint](https://eslint.org/) | JavaScript/TypeScript linting | `npm install --save-dev eslint` |
+| [TypeScript (`tsc`)](https://www.typescriptlang.org/) | TypeScript type checking | `npm install --save-dev typescript` |
+| [Prettier](https://prettier.io/) | Code formatter for JS/TS/JSON/YAML | `npm install --save-dev prettier` |
+| [nyc / c8](https://github.com/istanbuljs/nyc) | JavaScript/TypeScript test coverage | `npm install --save-dev c8` |
+| [golangci-lint](https://golangci-lint.run/) | Go meta-linter (vet, staticcheck, errcheck, …) | `docker run --rm -v $(pwd):/app golangci/golangci-lint golangci-lint run` |
+| [staticcheck](https://staticcheck.dev/) | Go static analysis and bug detection | `docker run --rm -v $(pwd):/app golangci/golangci-lint golangci-lint run` |
+| [clippy](https://github.com/rust-lang/rust-clippy) | Rust linter | `rustup component add clippy && cargo clippy -- -D warnings` |
+| [rustfmt](https://github.com/rust-lang/rustfmt) | Rust code formatter | `rustup component add rustfmt && cargo fmt --check` |
+| [cargo-audit](https://rustsec.org/) | Rust dependency vulnerability scanner | `cargo install cargo-audit && cargo audit` |
+| [cargo-tarpaulin](https://github.com/xd009642/tarpaulin) | Rust test coverage | `cargo install cargo-tarpaulin && cargo tarpaulin` |
+| [semgrep](https://semgrep.dev/) | Multi-language static analysis and security patterns | `docker run --rm -v $(pwd):/src semgrep/semgrep semgrep scan --config=auto` |
+| [trivy](https://aquasecurity.github.io/trivy/) | Dependency and container vulnerability scanning | `docker run --rm -v $(pwd):/work aquasec/trivy fs /work` |
+| [gitleaks](https://github.com/gitleaks/gitleaks) | Git history and staged-change secret scanning | `docker run --rm -v $(pwd):/path zricethezav/gitleaks detect` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Pre-commit secret baseline scanning | `uv tool install detect-secrets` |
+| [pip-audit](https://pypi.org/project/pip-audit/) | Python dependency vulnerability audit | `uv tool install pip-audit` |
+| [npm audit](https://docs.npmjs.com/cli/commands/npm-audit) | Node.js dependency vulnerability audit | `npm audit` |
+| [pre-commit](https://pre-commit.com/) | Run multi-language pre-commit hooks | `uv tool install pre-commit` |
+| [shellcheck](https://www.shellcheck.net/) | Shell script static analysis | `docker run --rm -v $(pwd):/mnt koalaman/shellcheck` |
+| [hadolint](https://github.com/hadolint/hadolint) | Dockerfile linting | `docker run --rm -i hadolint/hadolint < Dockerfile` |
+| [yamllint](https://github.com/adrienverge/yamllint) | YAML configuration file linting | `uv tool install yamllint` |
+| [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Markdown documentation linting | `npx markdownlint-cli` |
+
+</details>
