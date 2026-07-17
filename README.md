@@ -16,6 +16,7 @@
 | [CLI / Tools Engineer](skills/cli-tools-engineer.md) | CLI & Tools Engineer specializing in Python-first tooling with uv/poetry, clean code, proper packaging, CI/CD workflows, and pre-commit hooks |
 | [SEO Specialist](skills/seo-specialist.md) | World-class SEO specialist covering technical SEO, E-E-A-T, Core Web Vitals, schema/structured data, GEO, AEO, hreflang, GitHub repository SEO, and AI search optimization |
 | [Troubleshooter](skills/troubleshooter.md) | Root-cause analyst and protocol debugger covering system state collection, process anomaly detection, HTTP/REST/gRPC/GraphQL debugging, network diagnostics, VPN, and SSH — read-first, never damages a running system |
+| [Code Reviewer](skills/code-reviewer.md) | Senior code reviewer covering full branch-diff analysis, blast radius assessment, lint enforcement, documentation verification against exact library versions, test coverage audit, naming and scope review, architecture alignment, and Conventional Commits validation |
 
 ## How to Use
 
@@ -282,5 +283,38 @@ Every skill produces **fully functioning solutions**, not just code snippets:
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | Prevent secrets from leaking into investigation artifacts | `uv tool install detect-secrets` |
 | [gitleaks](https://github.com/gitleaks/gitleaks) | Scan config and history for credential leaks | `docker run --rm -v $(pwd):/path zricethezav/gitleaks` |
 | [pre-commit](https://pre-commit.com/) | Enforce hook quality gates on investigation scripts | `uv tool install pre-commit` |
+
+---
+
+### 🔬 Code Reviewer
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [ruff](https://github.com/astral-sh/ruff) | Python linting and formatting | `uv tool install ruff` |
+| [mypy](https://mypy.readthedocs.io/) | Python static type checking | `uv venv .venv && uv pip install mypy` |
+| [bandit](https://github.com/PyCQA/bandit) | Python security linting (OWASP) | `uv venv .venv && uv pip install bandit` |
+| [pylint](https://pylint.readthedocs.io/) | Python code analysis and convention checks | `uv venv .venv && uv pip install pylint` |
+| [coverage.py / pytest-cov](https://coverage.readthedocs.io/) | Python test coverage measurement | `uv venv .venv && uv pip install pytest-cov` |
+| [ESLint](https://eslint.org/) | JavaScript/TypeScript linting | `npm install --save-dev eslint` |
+| [TypeScript (`tsc`)](https://www.typescriptlang.org/) | TypeScript type checking | `npm install --save-dev typescript` |
+| [Prettier](https://prettier.io/) | Code formatter for JS/TS/JSON/YAML | `npm install --save-dev prettier` |
+| [nyc / c8](https://github.com/istanbuljs/nyc) | JavaScript/TypeScript test coverage | `npm install --save-dev c8` |
+| [golangci-lint](https://golangci-lint.run/) | Go meta-linter (vet, staticcheck, errcheck, …) | `docker run --rm -v $(pwd):/app golangci/golangci-lint golangci-lint run` |
+| [staticcheck](https://staticcheck.dev/) | Go static analysis and bug detection | `docker run --rm -v $(pwd):/app golangci/golangci-lint golangci-lint run` |
+| [clippy](https://github.com/rust-lang/rust-clippy) | Rust linter | `rustup component add clippy && cargo clippy -- -D warnings` |
+| [rustfmt](https://github.com/rust-lang/rustfmt) | Rust code formatter | `rustup component add rustfmt && cargo fmt --check` |
+| [cargo-audit](https://rustsec.org/) | Rust dependency vulnerability scanner | `cargo install cargo-audit && cargo audit` |
+| [cargo-tarpaulin](https://github.com/xd009642/tarpaulin) | Rust test coverage | `cargo install cargo-tarpaulin && cargo tarpaulin` |
+| [semgrep](https://semgrep.dev/) | Multi-language static analysis and security patterns | `docker run --rm -v $(pwd):/src semgrep/semgrep semgrep scan --config=auto` |
+| [trivy](https://aquasecurity.github.io/trivy/) | Dependency and container vulnerability scanning | `docker run --rm -v $(pwd):/work aquasec/trivy fs /work` |
+| [gitleaks](https://github.com/gitleaks/gitleaks) | Git history and staged-change secret scanning | `docker run --rm -v $(pwd):/path zricethezav/gitleaks detect` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Pre-commit secret baseline scanning | `uv tool install detect-secrets` |
+| [pip-audit](https://pypi.org/project/pip-audit/) | Python dependency vulnerability audit | `uv tool install pip-audit` |
+| [npm audit](https://docs.npmjs.com/cli/commands/npm-audit) | Node.js dependency vulnerability audit | `npm audit` |
+| [pre-commit](https://pre-commit.com/) | Run multi-language pre-commit hooks | `uv tool install pre-commit` |
+| [shellcheck](https://www.shellcheck.net/) | Shell script static analysis | `docker run --rm -v $(pwd):/mnt koalaman/shellcheck` |
+| [hadolint](https://github.com/hadolint/hadolint) | Dockerfile linting | `docker run --rm -i hadolint/hadolint < Dockerfile` |
+| [yamllint](https://github.com/adrienverge/yamllint) | YAML configuration file linting | `uv tool install yamllint` |
+| [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Markdown documentation linting | `npx markdownlint-cli` |
 
 </details>
