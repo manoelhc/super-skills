@@ -9,6 +9,7 @@
 | [SRE Engineer](skills/sre.md) | Site Reliability Engineer combining Infrastructure, Networking, Cybersecurity, DevOps, FinOps, and Disaster Recovery expertise with a pessimist mindset |
 | [QA Engineer](skills/qa-engineer.md) | Quality Assurance Engineer covering test strategy, automation, performance, accessibility, and CI quality gates |
 | [Backend Engineer](skills/backend-engineer.md) | Backend Engineer expert in API design, distributed systems, databases, messaging, security, and performance |
+| [PostgreSQL Engineer](skills/postgres-engineer.md) | PostgreSQL performance engineer focused on read-only diagnostics, slow query analysis, lock contention reduction, and high-impact runtime tuning |
 | [Frontend Engineer](skills/frontend-engineer.md) | Frontend Engineer specializing in React/Vue/Angular/Nuxt.js 4, performance (Core Web Vitals), accessibility, and design systems |
 | [Cybersecurity Engineer](skills/cybersecurity-engineer.md) | Cybersecurity Engineer covering AppSec, cloud security, penetration testing, threat modeling, and incident response |
 | [Project Manager Engineer](skills/project-manager.md) | Project Manager Engineer bridging technical execution and business goals via Agile, risk management, and stakeholder communication |
@@ -17,6 +18,9 @@
 | [SEO Specialist](skills/seo-specialist.md) | World-class SEO specialist covering technical SEO, E-E-A-T, Core Web Vitals, schema/structured data, GEO, AEO, hreflang, GitHub repository SEO, and AI search optimization |
 | [Troubleshooter](skills/troubleshooter.md) | Root-cause analyst and protocol debugger covering system state collection, process anomaly detection, HTTP/REST/gRPC/GraphQL debugging, network diagnostics, VPN, and SSH — read-first, never damages a running system |
 | [Code Reviewer](skills/code-reviewer.md) | Senior code reviewer covering full branch-diff analysis, blast radius assessment, lint enforcement, documentation verification against exact library versions, test coverage audit, naming and scope review, architecture alignment, and Conventional Commits validation |
+| [Auditor](skills/auditor.md) | Repository auditor covering branch protection, security & supply chain guardrails, CI automation gaps, pre-commit setup, and community health standards — opens GitHub Issues and PRs to track and remediate every finding |
+| [Weekly Activities Generator](skills/weekly-activities-generator.md) | Generates simple, high-level, concise weekly activity summaries from a user's open PRs and code changes |
+| [Rust MCP Coder](skills/rust-mcp-coder.md) | Expert Rust engineer who builds production-grade, token-authenticated MCP servers with Axum using TDD, cargo audit, clippy, full CI/CD, and dual HTTP/SSE transport for maximum client compatibility |
 
 ## How to Use
 
@@ -317,4 +321,58 @@ Every skill produces **fully functioning solutions**, not just code snippets:
 | [yamllint](https://github.com/adrienverge/yamllint) | YAML configuration file linting | `uv tool install yamllint` |
 | [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Markdown documentation linting | `npx markdownlint-cli` |
 
+---
+
+### 🔎 Auditor
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [GitHub CLI (`gh`)](https://cli.github.com/) | Query branch protection, open issues and PRs, manage repository settings | `docker run --rm -v $(pwd):/work ghcr.io/cli/cli gh` |
+| [gitleaks](https://github.com/gitleaks/gitleaks) | Detect secrets in git history and staged changes | `docker run --rm -v $(pwd):/path zricethezav/gitleaks detect --source /path` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Secrets baseline scanning and pre-commit hook | `uv tool install detect-secrets` |
+| [Semgrep](https://semgrep.dev/) | SAST — static application security testing | `docker run --rm -v $(pwd):/src semgrep/semgrep semgrep scan --config=auto` |
+| [Trivy](https://github.com/aquasecurity/trivy) | Dependency and container vulnerability scanning | `docker run --rm -v $(pwd):/work aquasec/trivy fs /work` |
+| [pip-audit](https://pypi.org/project/pip-audit/) | Python dependency vulnerability audit | `uv tool install pip-audit` |
+| [pre-commit](https://pre-commit.com/) | Pre-commit hook runner and configuration validator | `uv tool install pre-commit` |
+| [yamllint](https://github.com/adrienverge/yamllint) | Lint workflow YAML and `.pre-commit-config.yaml` | `uv tool install yamllint` |
+| [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) | Lint `README.md`, `CONTRIBUTING.md`, and community files | `npx markdownlint-cli` |
+
+---
+
+### 🦀 Rust MCP Coder
+
+| Tool | Purpose | Sandbox Install |
+|------|---------|----------------|
+| [Rust](https://www.rust-lang.org/tools/install) | Systems language for building memory-safe, high-performance MCP servers | `rustup toolchain install stable && rustup override set stable` |
+| [clippy](https://github.com/rust-lang/rust-clippy) | Rust linter — always run with `-- -D warnings` | `rustup component add clippy` |
+| [rustfmt](https://github.com/rust-lang/rustfmt) | Rust code formatter | `rustup component add rustfmt` |
+| [cargo-nextest](https://nexte.st/) | Fast Rust test runner with better output and parallelism | `cargo install cargo-nextest --locked` |
+| [cargo-audit](https://rustsec.org/) | Scan Rust dependencies for known CVEs via the RustSec advisory DB | `cargo install cargo-audit --locked` |
+| [cargo-deny](https://github.com/EmbarkStudios/cargo-deny) | Dependency license, advisory, and duplicate-crate policy checks | `cargo install cargo-deny --locked` |
+| [cargo-tarpaulin](https://github.com/xd009642/tarpaulin) | Rust code coverage (HTML, XML/Cobertura, LCOV output) | `cargo install cargo-tarpaulin --locked` |
+| [axum](https://github.com/tokio-rs/axum) | Ergonomic and modular Axum HTTP framework for MCP server transport | `cargo add axum --features macros,json` |
+| [tokio](https://tokio.rs/) | Async runtime powering all I/O in the MCP server | `cargo add tokio --features full` |
+| [tower-http](https://github.com/tower-rs/tower-http) | Tower middleware: CORS, tracing, compression, request-id | `cargo add tower-http --features cors,trace,compression-gzip,request-id` |
+| [subtle](https://github.com/dalek-cryptography/subtle) | Constant-time comparison for ****** auth (prevents timing oracles) | `cargo add subtle` |
+| [tower_governor](https://github.com/benwis/tower-governor) | Rate limiting middleware for Axum/Tower | `cargo add tower_governor` |
+| [thiserror](https://github.com/dtolnay/thiserror) | Derive macro for ergonomic typed error enums | `cargo add thiserror` |
+| [gitleaks](https://github.com/gitleaks/gitleaks) | Detect secrets in git history and staged changes | `docker run --rm -v $(pwd):/path zricethezav/gitleaks detect --source /path` |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | Secrets baseline scanning and pre-commit hook | `uv tool install detect-secrets` |
+| [pre-commit](https://pre-commit.com/) | Pre-commit hook runner for fmt, clippy, audit, and secrets | `uv tool install pre-commit` |
+
 </details>
+
+## Contribution Guidelines
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+- Use Conventional Commits for all commit messages.
+- Run `make lint` and `make validate` before submitting changes.
+
+## Security
+
+- Read [SECURITY.md](SECURITY.md) for vulnerability reporting instructions.
+- Do not disclose unpatched vulnerabilities in public issues.
+
+## Code of Conduct
+
+All contributors are expected to follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
